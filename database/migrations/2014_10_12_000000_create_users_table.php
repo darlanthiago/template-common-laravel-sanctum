@@ -18,10 +18,8 @@ class CreateUsersTable extends Migration
             $table->uuid('code');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->enum('profile', ['admin', 'user'])->default('user');
-            $table->boolean('is_approved')->default(false);
+            $table->enum('profile', ['admin', 'organizer', 'user'])->default('user');
             $table->rememberToken();
             $table->timestamps();
         });
